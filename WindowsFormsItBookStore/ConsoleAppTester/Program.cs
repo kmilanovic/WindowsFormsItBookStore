@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLayer;
 
 namespace ConsoleAppTester
 {
@@ -10,6 +11,14 @@ namespace ConsoleAppTester
     {
         static void Main(string[] args)
         {
+            var bookRepo = new BookRepository();
+            var books = bookRepo.GetBooks(); 
+
+            foreach (var book in books)
+            {
+                Console.WriteLine(book.Subtitle);
+            }
+            Console.ReadKey();
         }
     }
 }
