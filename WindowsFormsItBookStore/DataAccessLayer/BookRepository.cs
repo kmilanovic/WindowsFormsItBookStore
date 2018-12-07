@@ -12,26 +12,31 @@ namespace DataAccessLayer
     {
         public List<Book> GetBooks()
         {
+            List<Book> books = new List<Book>();
+
             StreamReader oSr = new StreamReader("books.json");
             string json = "";
             using (oSr)
             {
                 json = oSr.ReadToEnd();
-            }            JObject jsonObject = JObject.Parse(json);
+            }
+
+
+            JObject jsonObject = JObject.Parse(json);
             var oBooks = jsonObject["books"].ToList();
-            List<Book> books = new List<Book>();
-            for (int i = 0; i < books.Count; i++)
+            for (int i = 0; i < oBooks.Count; i++)
             {
                 books.Add(new Book
                 {
                     Title = (string)oBooks[i]["title"],
                     Subtitle = (string)oBooks[i]["subtitle"],
-                    Isbn = (int)oBooks[i]["isbn13"],
+                    Isbn = (string)oBooks[i]["isbn13"],
                     Price = (string)oBooks[i]["price"],
                     Image = (string)oBooks[i]["image"],
                     Url = (string)oBooks[i]["url"]
                 });
-            }            return books;
+            }
+            return books;
         }
     }
 }

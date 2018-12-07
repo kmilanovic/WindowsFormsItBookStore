@@ -16,7 +16,7 @@ namespace ConsoleAppTester
 
             foreach (var book in books)
             {
-                Console.WriteLine(book.Subtitle);
+                Console.WriteLine(book.Title);
             }
             Console.ReadKey();
         }
