@@ -12,7 +12,7 @@ namespace ConsoleAppTester
         static void Main(string[] args)
         {
             var bookRepo = new BookRepository();
-            var books = bookRepo.GetBooks(); 
+            var books = bookRepo.SearchBook(); 
 
             foreach (var book in books)
             {

@@ -5,21 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Net;
 
 namespace DataAccessLayer
 {
     public class BookRepository
     {
-        public List<Book> GetBooks()
+        public List<Book> SearchBook()
         {
             List<Book> books = new List<Book>();
 
-            StreamReader oSr = new StreamReader("books.json");
-            string json = "";
-            using (oSr)
-            {
-                json = oSr.ReadToEnd();
-            }
+            string title = "mongodb";
+            string json = CreateUrl(title);
 
 
             JObject jsonObject = JObject.Parse(json);
@@ -38,7 +35,26 @@ namespace DataAccessLayer
             }
             return books;
         }
+
+        public static string CreateUrl(string title)
+        {
+            string url = "https://api.itbook.store/1.0/search/"+title;
+            string json = CallRestMethod(url);
+            return json;
+        }
+
+        public static string CallRestMethod(string url)
+        {
+            HttpWebRequest webrequest = (HttpWebRequest)WebRequest.Create(url);
+            webrequest.Method = "GET";
+            webrequest.ContentType = "application/x-www-form-urlencoded";
+            HttpWebResponse webresponse = (HttpWebResponse)webrequest.GetResponse();
+            Encoding enc = System.Text.Encoding.GetEncoding("utf-8");
+            StreamReader responseStream = new StreamReader(webresponse.GetResponseStream(), enc);
+            string result = string.Empty;
+            result = responseStream.ReadToEnd();
+            webresponse.Close();
+            return result;
+        }
     }
 }
-
-//skini Management Studio
