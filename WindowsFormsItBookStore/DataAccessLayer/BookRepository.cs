@@ -11,16 +11,12 @@ namespace DataAccessLayer
 {
     public class BookRepository
     {
-        public List<Book> SearchBook()
+        public List<Book> SearchBook(string url)
         {
             List<Book> books = new List<Book>();
 
-            string title = "jQuery";
-            CreateUrl(title);
-            string url = "https://api.itbook.store/1.0/search/" +CreateUrl(title);
-            string json = CallRestMethod(url);
-
-
+            CreateUrl(url);           
+            string json = CallRestMethod(CreateUrl(url));
 
             JObject jsonObject = JObject.Parse(json);
             var oBooks = jsonObject["books"].ToList();
@@ -41,7 +37,7 @@ namespace DataAccessLayer
 
         public static string CreateUrl(string title)
         {
-            return title;
+           return "https://api.itbook.store/1.0/search/" + title;
         }
 
         public static string CallRestMethod(string url)
