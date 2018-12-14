@@ -16,7 +16,10 @@ namespace DataAccessLayer
             List<Book> books = new List<Book>();
 
             string title = "mongodb";
-            string json = CreateUrl(title);
+            CreateUrl(title);
+            string url = "https://api.itbook.store/1.0/search/" +CreateUrl(title);
+            string json = CallRestMethod(url);
+
 
 
             JObject jsonObject = JObject.Parse(json);
@@ -38,9 +41,7 @@ namespace DataAccessLayer
 
         public static string CreateUrl(string title)
         {
-            string url = "https://api.itbook.store/1.0/search/"+title;
-            string json = CallRestMethod(url);
-            return json;
+            return title;
         }
 
         public static string CallRestMethod(string url)
