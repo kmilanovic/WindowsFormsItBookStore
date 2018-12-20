@@ -6,16 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using System.Net;
+using System.Configuration;
+using System.Data.Common;
+using System.Data.SqlClient;
 
 namespace DataAccessLayer
 {
     public class BookRepository
     {
+        string connectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
+
         public List<Book> SearchBook(string url)
         {
             List<Book> books = new List<Book>();
-
-                     
+                                 
             string json = CallRestMethod(CreateUrl(url));
 
             JObject jsonObject = JObject.Parse(json);
@@ -33,6 +37,47 @@ namespace DataAccessLayer
                 });
             }
             return books;
+        }
+
+        public List<Book> GetBooks()
+        {
+            var books = new List<Book>();
+            using (DbConnection connection = new SqlConnection(connectionString))
+            using (DbCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT * FROM Book";
+                connection.Open();
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        books.Add(new Book()
+                        {
+                            Id = (int)reader["Id"],
+                            Title = (string)reader["Title"],
+                            Subtitle = (string)reader["Subtitle"],
+                            Isbn = (string)reader["Isbn"],
+                            Price = (string)reader["Price"],
+                            Image = (string)reader["Image"],
+                            Url = (string)reader["Url"]
+                        });
+                    }
+                }
+            }
+            return books;
+        }
+
+        public void AddBook(Book book)
+        {
+            using (DbConnection oConnection = new SqlConnection(connectionString)) using (DbCommand oCommand = oConnection.CreateCommand())
+            {
+                oCommand.CommandText = "INSERT INTO Book (Title, Subtitle, Isbn, Price, Image, Url) VALUES('" + book.Title + "', '" + book.Subtitle + "', '" + book.Isbn + "', '" + book.Price + "', '" + book.Image + "', '" + book.Url + "')";
+                oConnection.Open();
+                using (DbDataReader oReader = oCommand.ExecuteReader())
+                {
+
+                }
+            }
         }
 
         public static string CreateUrl(string title)
