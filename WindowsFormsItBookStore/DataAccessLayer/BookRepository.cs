@@ -15,7 +15,7 @@ namespace DataAccessLayer
         {
             List<Book> books = new List<Book>();
 
-            CreateUrl(url);           
+                     
             string json = CallRestMethod(CreateUrl(url));
 
             JObject jsonObject = JObject.Parse(json);
