@@ -65,6 +65,13 @@ namespace PresentationLayer
                 MessageBox.Show("Knjiga je dodana");
             }
         }
+
+        private void btnBookStore_Click(object sender, EventArgs e)
+        {
+            BookStore bookStore = new BookStore();
+            bookStore.Show();
+            this.Hide();
+        }
     }
 }
 

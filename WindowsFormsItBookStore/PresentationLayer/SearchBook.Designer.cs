@@ -35,9 +35,10 @@
             this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subtitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fotografija = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.image = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.url = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBookStore = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,8 +49,8 @@
             this.title,
             this.subtitle,
             this.isbn,
-            this.cijena,
-            this.fotografija,
+            this.price,
+            this.image,
             this.url});
             this.dataGridViewBooks.Location = new System.Drawing.Point(239, 25);
             this.dataGridViewBooks.Name = "dataGridViewBooks";
@@ -102,17 +103,17 @@
             this.isbn.HeaderText = "Isbn";
             this.isbn.Name = "isbn";
             // 
-            // cijena
+            // price
             // 
-            this.cijena.DataPropertyName = "Price";
-            this.cijena.HeaderText = "Cijena";
-            this.cijena.Name = "cijena";
+            this.price.DataPropertyName = "Price";
+            this.price.HeaderText = "Cijena";
+            this.price.Name = "price";
             // 
-            // fotografija
+            // image
             // 
-            this.fotografija.DataPropertyName = "Image";
-            this.fotografija.HeaderText = "Fotografija";
-            this.fotografija.Name = "fotografija";
+            this.image.DataPropertyName = "Image";
+            this.image.HeaderText = "Fotografija";
+            this.image.Name = "image";
             // 
             // url
             // 
@@ -120,11 +121,22 @@
             this.url.HeaderText = "Url";
             this.url.Name = "url";
             // 
+            // btnBookStore
+            // 
+            this.btnBookStore.Location = new System.Drawing.Point(34, 200);
+            this.btnBookStore.Name = "btnBookStore";
+            this.btnBookStore.Size = new System.Drawing.Size(160, 114);
+            this.btnBookStore.TabIndex = 4;
+            this.btnBookStore.Text = "KNJIŽNICA";
+            this.btnBookStore.UseVisualStyleBackColor = true;
+            this.btnBookStore.Click += new System.EventHandler(this.btnBookStore_Click);
+            // 
             // SearchBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 471);
+            this.Controls.Add(this.btnBookStore);
             this.Controls.Add(this.btnSearchBook);
             this.Controls.Add(this.lblBookName);
             this.Controls.Add(this.inptBookName);
@@ -147,8 +159,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn title;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cijena;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fotografija;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn image;
         private System.Windows.Forms.DataGridViewTextBoxColumn url;
+        private System.Windows.Forms.Button btnBookStore;
     }
 }
