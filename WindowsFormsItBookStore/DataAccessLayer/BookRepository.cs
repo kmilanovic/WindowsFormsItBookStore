@@ -16,7 +16,7 @@ namespace DataAccessLayer
     {
         string connectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
 
-        public List<Book> SearchBook(string url)
+        public List<Book> SearchBook(string url)    
         {
             List<Book> books = new List<Book>();
                                  
@@ -57,7 +57,7 @@ namespace DataAccessLayer
                             Title = (string)reader["Title"],
                             Subtitle = (string)reader["Subtitle"],
                             Isbn = (string)reader["Isbn"],
-                            Price = (string)reader["Price"],
+                            Price = Convert.ToString(reader["Price"]),
                             Image = (string)reader["Image"],
                             Url = (string)reader["Url"]
                         });
