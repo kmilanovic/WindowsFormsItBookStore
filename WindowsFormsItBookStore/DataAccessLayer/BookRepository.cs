@@ -53,7 +53,6 @@ namespace DataAccessLayer
                     {
                         books.Add(new Book()
                         {
-                            Id = (int)reader["Id"],
                             Title = (string)reader["Title"],
                             Subtitle = (string)reader["Subtitle"],
                             Isbn = (string)reader["Isbn"],

@@ -36,6 +36,8 @@
             this.subtitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fotografija = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.url = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,16 +48,19 @@
             this.title,
             this.subtitle,
             this.isbn,
-            this.cijena});
+            this.cijena,
+            this.fotografija,
+            this.url});
             this.dataGridViewBooks.Location = new System.Drawing.Point(239, 25);
             this.dataGridViewBooks.Name = "dataGridViewBooks";
             this.dataGridViewBooks.RowTemplate.Height = 24;
             this.dataGridViewBooks.Size = new System.Drawing.Size(853, 434);
             this.dataGridViewBooks.TabIndex = 0;
+            this.dataGridViewBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBooks_CellContentClick);
             // 
             // inptBookName
             // 
-            this.inptBookName.Location = new System.Drawing.Point(34, 103);
+            this.inptBookName.Location = new System.Drawing.Point(34, 65);
             this.inptBookName.Name = "inptBookName";
             this.inptBookName.Size = new System.Drawing.Size(160, 22);
             this.inptBookName.TabIndex = 1;
@@ -63,7 +68,7 @@
             // lblBookName
             // 
             this.lblBookName.AutoSize = true;
-            this.lblBookName.Location = new System.Drawing.Point(31, 63);
+            this.lblBookName.Location = new System.Drawing.Point(31, 34);
             this.lblBookName.Name = "lblBookName";
             this.lblBookName.Size = new System.Drawing.Size(134, 17);
             this.lblBookName.TabIndex = 2;
@@ -71,7 +76,7 @@
             // 
             // btnSearchBook
             // 
-            this.btnSearchBook.Location = new System.Drawing.Point(34, 161);
+            this.btnSearchBook.Location = new System.Drawing.Point(34, 109);
             this.btnSearchBook.Name = "btnSearchBook";
             this.btnSearchBook.Size = new System.Drawing.Size(160, 45);
             this.btnSearchBook.TabIndex = 3;
@@ -103,6 +108,18 @@
             this.cijena.HeaderText = "Cijena";
             this.cijena.Name = "cijena";
             // 
+            // fotografija
+            // 
+            this.fotografija.DataPropertyName = "Image";
+            this.fotografija.HeaderText = "Fotografija";
+            this.fotografija.Name = "fotografija";
+            // 
+            // url
+            // 
+            this.url.DataPropertyName = "Url";
+            this.url.HeaderText = "Url";
+            this.url.Name = "url";
+            // 
             // SearchBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -131,5 +148,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn subtitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cijena;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fotografija;
+        private System.Windows.Forms.DataGridViewTextBoxColumn url;
     }
 }

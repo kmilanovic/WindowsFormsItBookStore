@@ -19,7 +19,7 @@ namespace ConsoleAppTester
             var bookRepo = new BookRepository();
             //var books = bookRepo.SearchBook("html");
             Book _book = new Book();
-            _book.Title = "Expert Oracle and Java Security";
+            _book.Title = "bezze";
             _book.Subtitle = "Programming Secure Oracle Database Applications With Java";
             _book.Isbn = "9781430238317";
             _book.Price = "$22.33";
