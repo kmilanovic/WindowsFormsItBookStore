@@ -18,6 +18,7 @@ namespace DataAccessLayer
 
         public List<Book> SearchBook(string url)    
         {
+            
             List<Book> books = new List<Book>();
                                  
             string json = CallRestMethod(CreateUrl(url));
@@ -53,6 +54,7 @@ namespace DataAccessLayer
                     {
                         books.Add(new Book()
                         {
+                            Id = (int)reader["Id"],
                             Title = (string)reader["Title"],
                             Subtitle = (string)reader["Subtitle"],
                             Isbn = (string)reader["Isbn"],
@@ -71,6 +73,19 @@ namespace DataAccessLayer
             using (DbConnection oConnection = new SqlConnection(connectionString)) using (DbCommand oCommand = oConnection.CreateCommand())
             {
                 oCommand.CommandText = "INSERT INTO Book (Title, Subtitle, Isbn, Price, Image, Url) VALUES('" + book.Title + "', '" + book.Subtitle + "', '" + book.Isbn + "', '" + book.Price + "', '" + book.Image + "', '" + book.Url + "')";
+                oConnection.Open();
+                using (DbDataReader oReader = oCommand.ExecuteReader())
+                {
+
+                }
+            }
+        }
+
+        public void DeleteBook(Book book)
+        {
+            using (DbConnection oConnection = new SqlConnection(connectionString)) using (DbCommand oCommand = oConnection.CreateCommand())
+            {
+                oCommand.CommandText = "DELETE FROM Book WHERE Id = '" + book.Id + "'";
                 oConnection.Open();
                 using (DbDataReader oReader = oCommand.ExecuteReader())
                 {

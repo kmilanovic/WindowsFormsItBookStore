@@ -36,6 +36,7 @@
             this.cijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fotografija = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.url = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSavedBooks)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,11 +51,12 @@
             this.cijena,
             this.fotografija,
             this.url});
-            this.dataGridViewSavedBooks.Location = new System.Drawing.Point(13, 13);
+            this.dataGridViewSavedBooks.Location = new System.Drawing.Point(216, 12);
             this.dataGridViewSavedBooks.Name = "dataGridViewSavedBooks";
             this.dataGridViewSavedBooks.RowTemplate.Height = 24;
-            this.dataGridViewSavedBooks.Size = new System.Drawing.Size(878, 373);
+            this.dataGridViewSavedBooks.Size = new System.Drawing.Size(1007, 373);
             this.dataGridViewSavedBooks.TabIndex = 0;
+            this.dataGridViewSavedBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSavedBooks_CellContentClick);
             // 
             // id
             // 
@@ -98,11 +100,22 @@
             this.url.HeaderText = "Url";
             this.url.Name = "url";
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(13, 28);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(197, 138);
+            this.btnBack.TabIndex = 1;
+            this.btnBack.Text = "NATRAG";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // BookStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(903, 398);
+            this.ClientSize = new System.Drawing.Size(1235, 398);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dataGridViewSavedBooks);
             this.Name = "BookStore";
             this.Text = "BookStore";
@@ -122,5 +135,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cijena;
         private System.Windows.Forms.DataGridViewTextBoxColumn fotografija;
         private System.Windows.Forms.DataGridViewTextBoxColumn url;
+        private System.Windows.Forms.Button btnBack;
     }
 }

@@ -50,7 +50,7 @@ namespace PresentationLayer
                 var price = dataGridViewBooks.Rows[e.RowIndex].Cells[3].Value.ToString();
                 var convertedPrice = price.Remove(0, 1);
                 var image = dataGridViewBooks.Rows[e.RowIndex].Cells[4].Value.ToString();
-                var url = dataGridViewBooks.Rows[e.RowIndex].Cells[4].Value.ToString();
+                var url = dataGridViewBooks.Rows[e.RowIndex].Cells[5].Value.ToString();
 
                 var book = new Book
                 {
@@ -68,17 +68,12 @@ namespace PresentationLayer
 
         private void btnBookStore_Click(object sender, EventArgs e)
         {
-            BookStore bookStore = new BookStore();
-            bookStore.Show();
             this.Hide();
+            BookStore bookStore = new BookStore();
+            bookStore.ShowDialog();
+            this.Show();
         }
     }
 }
 
-
-
-
-
-//Napravio sam novu klasu "SearchBook" u kojoj nemam clanove Id, Url i Image
-//Prikazujem samo Naslov, podnaslov, isbn, cijenu i gumb spremi
 

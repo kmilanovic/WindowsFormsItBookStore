@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.dataGridViewBooks = new System.Windows.Forms.DataGridView();
-            this.inptBookName = new System.Windows.Forms.TextBox();
-            this.lblBookName = new System.Windows.Forms.Label();
-            this.btnSearchBook = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subtitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.image = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.url = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inptBookName = new System.Windows.Forms.TextBox();
+            this.lblBookName = new System.Windows.Forms.Label();
+            this.btnSearchBook = new System.Windows.Forms.Button();
             this.btnBookStore = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).BeginInit();
             this.SuspendLayout();
@@ -55,35 +55,9 @@
             this.dataGridViewBooks.Location = new System.Drawing.Point(239, 25);
             this.dataGridViewBooks.Name = "dataGridViewBooks";
             this.dataGridViewBooks.RowTemplate.Height = 24;
-            this.dataGridViewBooks.Size = new System.Drawing.Size(853, 434);
+            this.dataGridViewBooks.Size = new System.Drawing.Size(995, 434);
             this.dataGridViewBooks.TabIndex = 0;
             this.dataGridViewBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBooks_CellContentClick);
-            // 
-            // inptBookName
-            // 
-            this.inptBookName.Location = new System.Drawing.Point(34, 65);
-            this.inptBookName.Name = "inptBookName";
-            this.inptBookName.Size = new System.Drawing.Size(160, 22);
-            this.inptBookName.TabIndex = 1;
-            // 
-            // lblBookName
-            // 
-            this.lblBookName.AutoSize = true;
-            this.lblBookName.Location = new System.Drawing.Point(31, 34);
-            this.lblBookName.Name = "lblBookName";
-            this.lblBookName.Size = new System.Drawing.Size(134, 17);
-            this.lblBookName.TabIndex = 2;
-            this.lblBookName.Text = "Unesite naziv knjige";
-            // 
-            // btnSearchBook
-            // 
-            this.btnSearchBook.Location = new System.Drawing.Point(34, 109);
-            this.btnSearchBook.Name = "btnSearchBook";
-            this.btnSearchBook.Size = new System.Drawing.Size(160, 45);
-            this.btnSearchBook.TabIndex = 3;
-            this.btnSearchBook.Text = "TRAŽI";
-            this.btnSearchBook.UseVisualStyleBackColor = true;
-            this.btnSearchBook.Click += new System.EventHandler(this.btnSearchBook_Click);
             // 
             // title
             // 
@@ -121,6 +95,32 @@
             this.url.HeaderText = "Url";
             this.url.Name = "url";
             // 
+            // inptBookName
+            // 
+            this.inptBookName.Location = new System.Drawing.Point(34, 65);
+            this.inptBookName.Name = "inptBookName";
+            this.inptBookName.Size = new System.Drawing.Size(160, 22);
+            this.inptBookName.TabIndex = 1;
+            // 
+            // lblBookName
+            // 
+            this.lblBookName.AutoSize = true;
+            this.lblBookName.Location = new System.Drawing.Point(31, 34);
+            this.lblBookName.Name = "lblBookName";
+            this.lblBookName.Size = new System.Drawing.Size(134, 17);
+            this.lblBookName.TabIndex = 2;
+            this.lblBookName.Text = "Unesite naziv knjige";
+            // 
+            // btnSearchBook
+            // 
+            this.btnSearchBook.Location = new System.Drawing.Point(34, 109);
+            this.btnSearchBook.Name = "btnSearchBook";
+            this.btnSearchBook.Size = new System.Drawing.Size(160, 45);
+            this.btnSearchBook.TabIndex = 3;
+            this.btnSearchBook.Text = "TRAŽI";
+            this.btnSearchBook.UseVisualStyleBackColor = true;
+            this.btnSearchBook.Click += new System.EventHandler(this.btnSearchBook_Click);
+            // 
             // btnBookStore
             // 
             this.btnBookStore.Location = new System.Drawing.Point(34, 200);
@@ -135,7 +135,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1104, 471);
+            this.ClientSize = new System.Drawing.Size(1246, 471);
             this.Controls.Add(this.btnBookStore);
             this.Controls.Add(this.btnSearchBook);
             this.Controls.Add(this.lblBookName);
