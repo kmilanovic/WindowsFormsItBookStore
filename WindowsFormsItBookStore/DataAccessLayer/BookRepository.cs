@@ -114,3 +114,6 @@ namespace DataAccessLayer
         }
     }
 }
+
+
+//Napraviti da se klikom na pojedinu knjigu otovori forma s podacima o knjizi(Slika, naslov, podnaslov, cijena)

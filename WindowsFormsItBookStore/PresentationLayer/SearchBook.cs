@@ -20,11 +20,15 @@ namespace PresentationLayer
 
         public SearchBook()
         {
+            _tableBindingSource.DataSource = _bookRepository.GetBooks();
+
             InitializeComponent();
         }
 
         private void SearchBook_Load(object sender, EventArgs e)
         {
+            dataGridViewSavedBooks.DataSource = _tableBindingSource; 
+
             DataGridViewImageColumn oSaveButton = new DataGridViewImageColumn();
             oSaveButton.Image = Image.FromFile("C:\\Users\\Kristijan\\Source\\Repos\\WindowsFormsItBookStore\\WindowsFormsItBookStore\\Images\\save.png");
             oSaveButton.Width = 20;
@@ -63,6 +67,8 @@ namespace PresentationLayer
                 };
                 _bookRepository.AddBook(book);
                 MessageBox.Show("Knjiga je dodana");
+                _tableBindingSource.DataSource = _bookRepository.GetBooks();
+                dataGridViewSavedBooks.DataSource = _tableBindingSource;
             }
         }
 
