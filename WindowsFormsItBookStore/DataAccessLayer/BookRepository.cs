@@ -17,8 +17,7 @@ namespace DataAccessLayer
         string connectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
 
         public List<Book> SearchBook(string url)    
-        {
-            
+        {           
             List<Book> books = new List<Book>();
                                  
             string json = CallRestMethod(CreateUrl(url));
