@@ -67,7 +67,6 @@ namespace DataAccessLayer
             }
             return books;
         }
-
         public void AddBook(Book book)
         {
             using (DbConnection oConnection = new SqlConnection(connectionString)) using (DbCommand oCommand = oConnection.CreateCommand())

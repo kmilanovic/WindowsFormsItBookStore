@@ -15,7 +15,7 @@ namespace PresentationLayer
     {
 
         Book _book = new Book();
-        public BookRepository  _bookRepository = new BookRepository();
+        public BookRepository _bookRepository = new BookRepository();
         public BindingSource _tableBindingSource = new BindingSource();
 
         public SearchBook()
@@ -27,7 +27,7 @@ namespace PresentationLayer
 
         private void SearchBook_Load(object sender, EventArgs e)
         {
-            dataGridViewSavedBooks.DataSource = _tableBindingSource; 
+            dataGridViewSavedBooks.DataSource = _tableBindingSource;
 
             DataGridViewImageColumn oSaveButton = new DataGridViewImageColumn();
             oSaveButton.Image = Image.FromFile("C:\\Users\\Kristijan\\Source\\Repos\\WindowsFormsItBookStore\\WindowsFormsItBookStore\\Images\\save.png");
@@ -70,14 +70,6 @@ namespace PresentationLayer
                 _tableBindingSource.DataSource = _bookRepository.GetBooks();
                 dataGridViewSavedBooks.DataSource = _tableBindingSource;
             }
-        }
-
-        private void btnBookStore_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            BookStore bookStore = new BookStore();
-            bookStore.ShowDialog();
-            this.Show();
         }
     }
 }

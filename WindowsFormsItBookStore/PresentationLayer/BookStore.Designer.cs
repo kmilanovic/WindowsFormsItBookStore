@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.dataGridViewSavedBooks = new System.Windows.Forms.DataGridView();
+            this.btnBack = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.naslov = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.podnaslov = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fotografija = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.image = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.url = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSavedBooks)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@
             this.podnaslov,
             this.isbn,
             this.cijena,
-            this.fotografija,
+            this.image,
             this.url});
             this.dataGridViewSavedBooks.Location = new System.Drawing.Point(216, 12);
             this.dataGridViewSavedBooks.Name = "dataGridViewSavedBooks";
@@ -57,6 +57,16 @@
             this.dataGridViewSavedBooks.Size = new System.Drawing.Size(1007, 373);
             this.dataGridViewSavedBooks.TabIndex = 0;
             this.dataGridViewSavedBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSavedBooks_CellContentClick);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(13, 28);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(197, 138);
+            this.btnBack.TabIndex = 1;
+            this.btnBack.Text = "NATRAG";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // id
             // 
@@ -88,27 +98,17 @@
             this.cijena.HeaderText = "Cijena";
             this.cijena.Name = "cijena";
             // 
-            // fotografija
+            // image
             // 
-            this.fotografija.DataPropertyName = "Image";
-            this.fotografija.HeaderText = "Fotografija";
-            this.fotografija.Name = "fotografija";
+            this.image.DataPropertyName = "Image_url";
+            this.image.HeaderText = "Image";
+            this.image.Name = "image";
             // 
             // url
             // 
             this.url.DataPropertyName = "Url";
             this.url.HeaderText = "Url";
             this.url.Name = "url";
-            // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(13, 28);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(197, 138);
-            this.btnBack.TabIndex = 1;
-            this.btnBack.Text = "NATRAG";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // BookStore
             // 
@@ -128,13 +128,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewSavedBooks;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn naslov;
         private System.Windows.Forms.DataGridViewTextBoxColumn podnaslov;
         private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cijena;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fotografija;
+        private System.Windows.Forms.DataGridViewTextBoxColumn image;
         private System.Windows.Forms.DataGridViewTextBoxColumn url;
-        private System.Windows.Forms.Button btnBack;
     }
 }
