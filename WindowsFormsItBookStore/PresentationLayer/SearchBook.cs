@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccessLayer;
+using System.Net;
 
 namespace PresentationLayer
 {
     public partial class SearchBook : Form
     {
-
         Book _book = new Book();
         public BookRepository _bookRepository = new BookRepository();
         public BindingSource _tableBindingSource = new BindingSource();
@@ -34,8 +34,27 @@ namespace PresentationLayer
             oSaveButton.Width = 20;
             oSaveButton.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewBooks.Columns.Add(oSaveButton);
+            dataGridViewBooks.Columns[6].HeaderText = "Spremi";
+
+            DataGridViewImageColumn oViewButton = new DataGridViewImageColumn();
+            oViewButton.Image = Image.FromFile("C:\\Users\\Kristijan\\Source\\Repos\\WindowsFormsItBookStore\\WindowsFormsItBookStore\\Images\\view.png");
+            oViewButton.Width = 20;
+            oViewButton.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewSavedBooks.Columns.Add(oViewButton);
+            dataGridViewSavedBooks.Columns[8].HeaderText = "Pogledaj knjigu";
 
             dataGridViewBooks.AutoGenerateColumns = false;
+            dataGridViewSavedBooks.AutoGenerateColumns = false;
+
+            dataGridViewBooks.Columns[3].Visible = false;
+            dataGridViewBooks.Columns[4].Visible = false;
+            dataGridViewBooks.Columns[5].Visible = false;
+
+            dataGridViewSavedBooks.Columns[3].Visible = false;
+            dataGridViewSavedBooks.Columns[4].Visible = false;
+            dataGridViewSavedBooks.Columns[5].Visible = false;
+            dataGridViewSavedBooks.Columns[6].Visible = false;
+            dataGridViewSavedBooks.Columns[7].Visible = false;
         }
 
         private void btnSearchBook_Click(object sender, EventArgs e)
@@ -69,6 +88,34 @@ namespace PresentationLayer
                 MessageBox.Show("Knjiga je dodana");
                 _tableBindingSource.DataSource = _bookRepository.GetBooks();
                 dataGridViewSavedBooks.DataSource = _tableBindingSource;
+            }
+        }
+
+        private void dataGridViewSavedBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewSavedBooks.CurrentCell.ColumnIndex.Equals(8) && e.RowIndex != -1)
+            {
+                var bookId = Convert.ToInt32(dataGridViewSavedBooks.Rows[e.RowIndex].Cells[1].Value);
+                var title = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[2].Value.ToString();
+                var subtitle = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[3].Value.ToString();
+                var isbn = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[4].Value.ToString();
+                var price = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[5].Value.ToString();
+                var convertedPrice = price.Remove(0, 1);  
+                var image = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[6].Value.ToString();
+                var url = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[7].Value.ToString();
+
+                var book = new Book
+                {
+                    Id = bookId,
+                    Title = title,
+                    Subtitle = subtitle,
+                    Isbn = isbn,
+                    Price = convertedPrice,
+                    Image = image,
+                    Url = url,
+                };
+                BookData bookData = new BookData(book, this);
+                bookData.Show();
             }
         }
     }

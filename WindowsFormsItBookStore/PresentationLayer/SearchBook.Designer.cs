@@ -42,6 +42,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridViewSavedBooks = new System.Windows.Forms.DataGridView();
+            this.redni_broj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.naslov = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.podnaslov = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -182,6 +183,7 @@
             this.dataGridViewSavedBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewSavedBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSavedBooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.redni_broj,
             this.id,
             this.naslov,
             this.podnaslov,
@@ -194,6 +196,14 @@
             this.dataGridViewSavedBooks.RowTemplate.Height = 24;
             this.dataGridViewSavedBooks.Size = new System.Drawing.Size(1201, 432);
             this.dataGridViewSavedBooks.TabIndex = 0;
+            this.dataGridViewSavedBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSavedBooks_CellContentClick);
+            // 
+            // redni_broj
+            // 
+            this.redni_broj.DataPropertyName = "nRbr";
+            this.redni_broj.HeaderText = "Redni broj";
+            this.redni_broj.Name = "redni_broj";
+            this.redni_broj.Width = 102;
             // 
             // id
             // 
@@ -278,6 +288,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridViewSavedBooks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn redni_broj;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn naslov;
         private System.Windows.Forms.DataGridViewTextBoxColumn podnaslov;

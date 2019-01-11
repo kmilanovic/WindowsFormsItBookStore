@@ -15,6 +15,13 @@ namespace DataAccessLayer
     public class BookRepository
     {
         string connectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
+        public List<Book> _books = new List<Book>();
+
+        public BookRepository()
+        {
+            _books = GetBooks();
+        }
+
 
         public List<Book> SearchBook(string url)    
         {           
@@ -41,6 +48,7 @@ namespace DataAccessLayer
 
         public List<Book> GetBooks()
         {
+            int nRbr = 0;
             var books = new List<Book>();
             using (DbConnection connection = new SqlConnection(connectionString))
             using (DbCommand command = connection.CreateCommand())
@@ -51,8 +59,10 @@ namespace DataAccessLayer
                 {
                     while (reader.Read())
                     {
+                        nRbr++ ;
                         books.Add(new Book()
                         {
+                            nRbr = nRbr,
                             Id = (int)reader["Id"],
                             Title = (string)reader["Title"],
                             Subtitle = (string)reader["Subtitle"],
@@ -66,6 +76,7 @@ namespace DataAccessLayer
             }
             return books;
         }
+
         public void AddBook(Book book)
         {
             using (DbConnection oConnection = new SqlConnection(connectionString)) using (DbCommand oCommand = oConnection.CreateCommand())
