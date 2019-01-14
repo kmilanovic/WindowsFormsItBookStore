@@ -51,7 +51,7 @@ namespace PresentationLayer
             dataGridViewBooks.Columns[5].Visible = false;
 
             dataGridViewSavedBooks.Columns[3].Visible = false;
-            dataGridViewSavedBooks.Columns[4].Visible = false;
+            //dataGridViewSavedBooks.Columns[4].Visible = false;
             //dataGridViewSavedBooks.Columns[5].Visible = false;
             dataGridViewSavedBooks.Columns[6].Visible = false;
             dataGridViewSavedBooks.Columns[7].Visible = false;
@@ -76,32 +76,29 @@ namespace PresentationLayer
                 var url = dataGridViewBooks.Rows[e.RowIndex].Cells[5].Value.ToString();
 
 
-                var book = new Book
-                {
-                    Title = title,
-                    Subtitle = subtitle,
-                    Isbn = isbn,
-                    Price = convertedPrice,
-                    Image = image,
-                    Url = url
-                };
-
+                
                Boolean found = false;   
 
-                for (int i = 0; i < dataGridViewSavedBooks.RowCount - 1; i++)
-                {
-                    for(int j= 0; j < dataGridViewBooks.RowCount -1; j++)
+                    for(int j= 0; j < dataGridViewSavedBooks.RowCount -1; j++)
                     {
-                        if (dataGridViewSavedBooks[2, i].Value.ToString() == dataGridViewBooks[0, j].Value.ToString())
+                        if (dataGridViewSavedBooks[2, j].Value.ToString() == title)
                         {
-                            MessageBox.Show("Knjiga: " + dataGridViewBooks[0, j].Value.ToString() + " je već dodana u bazu");
+                            MessageBox.Show("Knjiga: "+ dataGridViewSavedBooks[2, j].Value.ToString() + " je već dodana u bazu");
                             found = true;
                         }
                     }                         
-                }
-
-                if(!found)
+                
+                if(found == false)
                 {
+                    var book = new Book
+                    {
+                        Title = title,
+                        Subtitle = subtitle,
+                        Isbn = isbn,
+                        Price = convertedPrice,
+                        Image = image,
+                        Url = url
+                    };
                     _bookRepository.AddBook(book);
                     MessageBox.Show("Knjiga je dodana");
                 }
@@ -109,7 +106,7 @@ namespace PresentationLayer
 
                 _tableBindingSource.DataSource = _bookRepository.GetBooks();
                 dataGridViewSavedBooks.DataSource = _tableBindingSource;
-            }
+            }   
         }
 
         private void dataGridViewSavedBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
