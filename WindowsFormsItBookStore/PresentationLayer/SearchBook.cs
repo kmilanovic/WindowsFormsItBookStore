@@ -46,7 +46,7 @@ namespace PresentationLayer
             dataGridViewBooks.AutoGenerateColumns = false;
             dataGridViewSavedBooks.AutoGenerateColumns = false;
 
-            dataGridViewBooks.Columns[3].Visible = false;
+           // dataGridViewBooks.Columns[3].Visible = false;
             dataGridViewBooks.Columns[4].Visible = false;
             dataGridViewBooks.Columns[5].Visible = false;
 
@@ -76,8 +76,8 @@ namespace PresentationLayer
                 var url = dataGridViewBooks.Rows[e.RowIndex].Cells[5].Value.ToString();
 
 
-                
-               Boolean found = false;   
+
+                Boolean found = false;   
 
                     for(int j= 0; j < dataGridViewSavedBooks.RowCount -1; j++)
                     {
@@ -122,6 +122,28 @@ namespace PresentationLayer
                 var image = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[6].Value.ToString();
                 var url = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[7].Value.ToString();
 
+                for(int i = 0; i < dataGridViewSavedBooks.RowCount - 1; i++)
+                {
+                    subtitle = dataGridViewSavedBooks.Rows[i].Cells[3].Value.ToString();
+                    isbn = dataGridViewSavedBooks.Rows[i].Cells[4].Value.ToString();
+                    price = dataGridViewSavedBooks.Rows[i].Cells[5].Value.ToString();
+                    {
+                        if(string.IsNullOrEmpty(subtitle))
+                        {
+                            subtitle = "/";
+                        }
+                        if(string.IsNullOrEmpty(isbn))
+                        {
+                            isbn = "/";
+                        }
+                        if (string.IsNullOrEmpty(price))
+                        {
+                            price = "Free";
+                        }
+                    }
+                }
+
+
                 var book = new Book
                 {
                     Id = bookId,
@@ -132,6 +154,7 @@ namespace PresentationLayer
                     Image = image,
                     Url = url,
                 };
+
                 BookData bookData = new BookData(book, this);
                 bookData.Show();
             }

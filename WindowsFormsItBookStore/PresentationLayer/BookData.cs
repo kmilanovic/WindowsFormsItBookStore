@@ -30,9 +30,10 @@ namespace PresentationLayer
             lblTitle.Text = _book.Title;
             lblSubtitle.Text = _book.Subtitle;
             lblIsbn.Text = _book.Isbn;
-            lblPrice.Text = _book.Price;
+            lblPrice.Text = Convert.ToString(_book.Price);
             pictureBox.ImageLocation =_book.Image;
             webBrowser.Url = new Uri(_book.Url);
+
 
             webBrowser.ScriptErrorsSuppressed = true;
 

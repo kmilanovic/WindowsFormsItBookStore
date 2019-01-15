@@ -85,7 +85,7 @@
             // lblNaslov
             // 
             this.lblNaslov.AutoSize = true;
-            this.lblNaslov.Location = new System.Drawing.Point(548, 58);
+            this.lblNaslov.Location = new System.Drawing.Point(547, 67);
             this.lblNaslov.Name = "lblNaslov";
             this.lblNaslov.Size = new System.Drawing.Size(51, 17);
             this.lblNaslov.TabIndex = 4;
@@ -112,7 +112,7 @@
             // lblCijena
             // 
             this.lblCijena.AutoSize = true;
-            this.lblCijena.Location = new System.Drawing.Point(551, 344);
+            this.lblCijena.Location = new System.Drawing.Point(547, 347);
             this.lblCijena.Name = "lblCijena";
             this.lblCijena.Size = new System.Drawing.Size(47, 17);
             this.lblCijena.TabIndex = 7;
