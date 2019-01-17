@@ -94,10 +94,10 @@
             this.price,
             this.image,
             this.url});
-            this.dataGridViewBooks.Location = new System.Drawing.Point(219, 0);
+            this.dataGridViewBooks.Location = new System.Drawing.Point(184, 23);
             this.dataGridViewBooks.Name = "dataGridViewBooks";
             this.dataGridViewBooks.RowTemplate.Height = 24;
-            this.dataGridViewBooks.Size = new System.Drawing.Size(995, 434);
+            this.dataGridViewBooks.Size = new System.Drawing.Size(957, 467);
             this.dataGridViewBooks.TabIndex = 0;
             this.dataGridViewBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBooks_CellContentClick);
             // 
@@ -150,7 +150,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1222, 481);
+            this.tabControl1.Size = new System.Drawing.Size(1222, 540);
             this.tabControl1.TabIndex = 5;
             // 
             // tabPage1
@@ -162,7 +162,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1214, 452);
+            this.tabPage1.Size = new System.Drawing.Size(1214, 511);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Pretraga";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -173,7 +173,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1214, 452);
+            this.tabPage2.Size = new System.Drawing.Size(1214, 511);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Knjižnica";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -191,7 +191,7 @@
             this.Cijena,
             this.fotografija,
             this.url_link});
-            this.dataGridViewSavedBooks.Location = new System.Drawing.Point(7, 7);
+            this.dataGridViewSavedBooks.Location = new System.Drawing.Point(10, 15);
             this.dataGridViewSavedBooks.Name = "dataGridViewSavedBooks";
             this.dataGridViewSavedBooks.RowTemplate.Height = 24;
             this.dataGridViewSavedBooks.Size = new System.Drawing.Size(1201, 432);
@@ -258,7 +258,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 497);
+            this.ClientSize = new System.Drawing.Size(1248, 564);
             this.Controls.Add(this.tabControl1);
             this.Name = "SearchBook";
             this.Text = "SearchBook";

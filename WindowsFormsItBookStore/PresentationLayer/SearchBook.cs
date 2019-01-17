@@ -118,31 +118,22 @@ namespace PresentationLayer
                 var subtitle = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[3].Value.ToString();
                 var isbn = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[4].Value.ToString();
                 var price = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[5].Value.ToString();
-                var convertedPrice = price.Remove(0, 1);  
+                var convertedPrice = price.Remove(0, 1);
                 var image = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[6].Value.ToString();
                 var url = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[7].Value.ToString();
 
-                for(int i = 0; i < dataGridViewSavedBooks.RowCount - 1; i++)
+                if(string.IsNullOrEmpty(subtitle))
                 {
-                    subtitle = dataGridViewSavedBooks.Rows[i].Cells[3].Value.ToString();
-                    isbn = dataGridViewSavedBooks.Rows[i].Cells[4].Value.ToString();
-                    price = dataGridViewSavedBooks.Rows[i].Cells[5].Value.ToString();
-                    {
-                        if(string.IsNullOrEmpty(subtitle))
-                        {
-                            subtitle = "/";
-                        }
-                        if(string.IsNullOrEmpty(isbn))
-                        {
-                            isbn = "/";
-                        }
-                        if (string.IsNullOrEmpty(price))
-                        {
-                            price = "Free";
-                        }
-                    }
+                    subtitle = "/";
                 }
-
+                if(string.IsNullOrEmpty(isbn))
+                {
+                    isbn = "/";
+                }
+                if (string.IsNullOrEmpty(price))
+                {
+                    price = "Free";
+                }
 
                 var book = new Book
                 {
