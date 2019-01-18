@@ -46,13 +46,13 @@ namespace PresentationLayer
             dataGridViewBooks.AutoGenerateColumns = false;
             dataGridViewSavedBooks.AutoGenerateColumns = false;
 
-           // dataGridViewBooks.Columns[3].Visible = false;
+            //dataGridViewBooks.Columns[3].Visible = false;
             dataGridViewBooks.Columns[4].Visible = false;
             dataGridViewBooks.Columns[5].Visible = false;
 
             dataGridViewSavedBooks.Columns[3].Visible = false;
-            //dataGridViewSavedBooks.Columns[4].Visible = false;
-            //dataGridViewSavedBooks.Columns[5].Visible = false;
+            dataGridViewSavedBooks.Columns[4].Visible = false;
+            dataGridViewSavedBooks.Columns[5].Visible = false;
             dataGridViewSavedBooks.Columns[6].Visible = false;
             dataGridViewSavedBooks.Columns[7].Visible = false;
         }
@@ -114,37 +114,18 @@ namespace PresentationLayer
             if (dataGridViewSavedBooks.CurrentCell.ColumnIndex.Equals(8) && e.RowIndex != -1)
             {
                 var bookId = Convert.ToInt32(dataGridViewSavedBooks.Rows[e.RowIndex].Cells[1].Value);
-                var title = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[2].Value.ToString();
-                var subtitle = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[3].Value.ToString();
-                var isbn = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[4].Value.ToString();
-                var price = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[5].Value.ToString();
-                var convertedPrice = price.Remove(0, 1);
-                var image = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[6].Value.ToString();
-                var url = dataGridViewSavedBooks.Rows[e.RowIndex].Cells[7].Value.ToString();
 
-                if(string.IsNullOrEmpty(subtitle))
+                var book = _bookRepository.GetBookById(bookId);
+
+                if (string.IsNullOrEmpty(book.Subtitle))
                 {
-                    subtitle = "/";
-                }
-                if(string.IsNullOrEmpty(isbn))
-                {
-                    isbn = "/";
-                }
-                if (string.IsNullOrEmpty(price))
-                {
-                    price = "Free";
+                    book.Subtitle = "/";
                 }
 
-                var book = new Book
+                if (Double.Parse(book.Price) == 0)
                 {
-                    Id = bookId,
-                    Title = title,
-                    Subtitle = subtitle,
-                    Isbn = isbn,
-                    Price = convertedPrice,
-                    Image = image,
-                    Url = url,
-                };
+                    book.Price = "Free";
+                }
 
                 BookData bookData = new BookData(book, this);
                 bookData.Show();

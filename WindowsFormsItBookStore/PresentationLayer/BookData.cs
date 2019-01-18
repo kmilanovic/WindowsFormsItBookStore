@@ -18,7 +18,7 @@ namespace PresentationLayer
         SearchBook _searchBook = new SearchBook();
         private BookRepository _bookRepository = new BookRepository();
 
-        public BookData(Book book, SearchBook searchBook)
+        public BookData(Book book, SearchBook searchBook) //int BookID
         {
             _book = book;
             _searchBook = searchBook;

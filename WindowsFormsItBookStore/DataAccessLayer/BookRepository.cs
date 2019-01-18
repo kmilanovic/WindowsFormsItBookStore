@@ -77,6 +77,23 @@ namespace DataAccessLayer
             return books;
         }
 
+
+        public Book GetBookById(int bookId)
+        {
+            var customers = GetBooks();
+            var book = _books.Where(b => b.Id == bookId).Select(b => new Book
+            {
+                Id = b.Id,
+                Title = b.Title,
+                Subtitle = b.Subtitle,
+                Isbn = b.Isbn,
+                Price = b.Price,
+                Image = b.Image,
+                Url = b.Url
+            }).FirstOrDefault();
+            return book;
+        }
+
         public void AddBook(Book book)
         {
             using (DbConnection oConnection = new SqlConnection(connectionString)) using (DbCommand oCommand = oConnection.CreateCommand())
