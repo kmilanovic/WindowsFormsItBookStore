@@ -23,10 +23,10 @@ namespace DataAccessLayer
         }
 
 
-        public List<Book> SearchBook(string url)    
-        {           
+        public List<Book> SearchBook(string url)
+        {
             List<Book> books = new List<Book>();
-                                 
+
             string json = CallRestMethod(CreateUrl(url));
 
             JObject jsonObject = JObject.Parse(json);
@@ -48,7 +48,6 @@ namespace DataAccessLayer
 
         public List<Book> GetBooks()
         {
-            int nRbr = 0;
             var books = new List<Book>();
             using (DbConnection connection = new SqlConnection(connectionString))
             using (DbCommand command = connection.CreateCommand())
@@ -59,10 +58,8 @@ namespace DataAccessLayer
                 {
                     while (reader.Read())
                     {
-                        nRbr++ ;
                         books.Add(new Book()
                         {
-                            nRbr = nRbr,
                             Id = (int)reader["Id"],
                             Title = (string)reader["Title"],
                             Subtitle = (string)reader["Subtitle"],
@@ -73,14 +70,13 @@ namespace DataAccessLayer
                         });
                     }
                 }
+               books = books.OrderBy(b => b.Title).ToList();
             }
             return books;
         }
 
-
         public Book GetBookById(int bookId)
         {
-            var customers = GetBooks();
             var book = _books.Where(b => b.Id == bookId).Select(b => new Book
             {
                 Id = b.Id,
@@ -102,14 +98,15 @@ namespace DataAccessLayer
                 oConnection.Open();
                 using (DbDataReader oReader = oCommand.ExecuteReader())
                 {
-
+    
                 }
             }
         }
 
         public void DeleteBook(Book book)
         {
-            using (DbConnection oConnection = new SqlConnection(connectionString)) using (DbCommand oCommand = oConnection.CreateCommand())
+            string sSqlConnectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
+            using (DbConnection oConnection = new SqlConnection(sSqlConnectionString)) using (DbCommand oCommand = oConnection.CreateCommand())
             {
                 oCommand.CommandText = "DELETE FROM Book WHERE Id = '" + book.Id + "'";
                 oConnection.Open();
@@ -122,7 +119,7 @@ namespace DataAccessLayer
 
         public static string CreateUrl(string title)
         {
-           return "https://api.itbook.store/1.0/search/" + title;
+            return "https://api.itbook.store/1.0/search/" + title;
         }
 
         public static string CallRestMethod(string url)
@@ -141,5 +138,3 @@ namespace DataAccessLayer
     }
 }
 
-
-//Napraviti da se klikom na pojedinu knjigu otovori forma s podacima o knjizi(Slika, naslov, podnaslov, cijena)

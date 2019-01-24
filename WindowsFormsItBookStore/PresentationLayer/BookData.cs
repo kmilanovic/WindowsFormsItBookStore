@@ -15,25 +15,32 @@ namespace PresentationLayer
     public partial class BookData : Form
     {
         Book _book = new Book();
-        SearchBook _searchBook = new SearchBook();
-        private BookRepository _bookRepository = new BookRepository();
-
-        public BookData(Book book, SearchBook searchBook) //int BookID
+        public BookData(Book book)
         {
             _book = book;
-            _searchBook = searchBook;
             InitializeComponent();
         }
 
         private void BookData_Load(object sender, EventArgs e)
         {
+            tabControl1.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
+            webBrowser.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
+
             lblTitle.Text = _book.Title;
             lblSubtitle.Text = _book.Subtitle;
             lblIsbn.Text = _book.Isbn;
-            lblPrice.Text = Convert.ToString(_book.Price);
+            lblPrice.Text = Convert.ToString("$ " + _book.Price);
             pictureBox.ImageLocation =_book.Image;
             webBrowser.Url = new Uri(_book.Url);
 
+            if(string.IsNullOrEmpty(_book.Subtitle))
+            {
+                lblSubtitle.Text = "/";
+            }
+            if(_book.Price == "0")
+            {
+                lblPrice.Text = "Free";
+            }
 
             webBrowser.ScriptErrorsSuppressed = true;
 

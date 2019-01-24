@@ -42,7 +42,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridViewSavedBooks = new System.Windows.Forms.DataGridView();
-            this.redni_broj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.naslov = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.podnaslov = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,25 +58,28 @@
             // 
             // inptBookName
             // 
-            this.inptBookName.Location = new System.Drawing.Point(18, 57);
+            this.inptBookName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inptBookName.Location = new System.Drawing.Point(244, 23);
             this.inptBookName.Name = "inptBookName";
-            this.inptBookName.Size = new System.Drawing.Size(160, 22);
+            this.inptBookName.Size = new System.Drawing.Size(495, 30);
             this.inptBookName.TabIndex = 1;
             // 
             // lblBookName
             // 
             this.lblBookName.AutoSize = true;
-            this.lblBookName.Location = new System.Drawing.Point(15, 23);
+            this.lblBookName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookName.Location = new System.Drawing.Point(30, 26);
             this.lblBookName.Name = "lblBookName";
-            this.lblBookName.Size = new System.Drawing.Size(134, 17);
+            this.lblBookName.Size = new System.Drawing.Size(185, 25);
             this.lblBookName.TabIndex = 2;
             this.lblBookName.Text = "Unesite naziv knjige";
             // 
             // btnSearchBook
             // 
-            this.btnSearchBook.Location = new System.Drawing.Point(18, 102);
+            this.btnSearchBook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearchBook.Location = new System.Drawing.Point(881, 23);
             this.btnSearchBook.Name = "btnSearchBook";
-            this.btnSearchBook.Size = new System.Drawing.Size(160, 45);
+            this.btnSearchBook.Size = new System.Drawing.Size(146, 30);
             this.btnSearchBook.TabIndex = 3;
             this.btnSearchBook.Text = "TRAŽI";
             this.btnSearchBook.UseVisualStyleBackColor = true;
@@ -85,7 +87,11 @@
             // 
             // dataGridViewBooks
             // 
-            this.dataGridViewBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewBooks.AllowUserToAddRows = false;
+            this.dataGridViewBooks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.title,
@@ -94,10 +100,10 @@
             this.price,
             this.image,
             this.url});
-            this.dataGridViewBooks.Location = new System.Drawing.Point(184, 23);
+            this.dataGridViewBooks.Location = new System.Drawing.Point(35, 75);
             this.dataGridViewBooks.Name = "dataGridViewBooks";
             this.dataGridViewBooks.RowTemplate.Height = 24;
-            this.dataGridViewBooks.Size = new System.Drawing.Size(957, 467);
+            this.dataGridViewBooks.Size = new System.Drawing.Size(992, 337);
             this.dataGridViewBooks.TabIndex = 0;
             this.dataGridViewBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBooks_CellContentClick);
             // 
@@ -106,42 +112,36 @@
             this.title.DataPropertyName = "Title";
             this.title.HeaderText = "Naslov";
             this.title.Name = "title";
-            this.title.Width = 80;
             // 
             // subtitle
             // 
             this.subtitle.DataPropertyName = "Subtitle";
             this.subtitle.HeaderText = "Podnaslov";
             this.subtitle.Name = "subtitle";
-            this.subtitle.Width = 103;
             // 
             // isbn
             // 
             this.isbn.DataPropertyName = "Isbn";
             this.isbn.HeaderText = "Isbn";
             this.isbn.Name = "isbn";
-            this.isbn.Width = 63;
             // 
             // price
             // 
             this.price.DataPropertyName = "Price";
             this.price.HeaderText = "Cijena";
             this.price.Name = "price";
-            this.price.Width = 76;
             // 
             // image
             // 
             this.image.DataPropertyName = "Image";
             this.image.HeaderText = "Fotografija";
             this.image.Name = "image";
-            this.image.Width = 104;
             // 
             // url
             // 
             this.url.DataPropertyName = "Url";
             this.url.HeaderText = "Url";
             this.url.Name = "url";
-            this.url.Width = 55;
             // 
             // tabControl1
             // 
@@ -150,11 +150,12 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1222, 540);
+            this.tabControl1.Size = new System.Drawing.Size(1052, 466);
             this.tabControl1.TabIndex = 5;
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.GhostWhite;
             this.tabPage1.Controls.Add(this.dataGridViewBooks);
             this.tabPage1.Controls.Add(this.btnSearchBook);
             this.tabPage1.Controls.Add(this.lblBookName);
@@ -162,28 +163,30 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1214, 511);
+            this.tabPage1.Size = new System.Drawing.Size(1044, 437);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Pretraga";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.GhostWhite;
             this.tabPage2.Controls.Add(this.dataGridViewSavedBooks);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1214, 511);
+            this.tabPage2.Size = new System.Drawing.Size(1044, 437);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Knjižnica";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // dataGridViewSavedBooks
             // 
-            this.dataGridViewSavedBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewSavedBooks.AllowUserToAddRows = false;
+            this.dataGridViewSavedBooks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewSavedBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSavedBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSavedBooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.redni_broj,
             this.id,
             this.naslov,
             this.podnaslov,
@@ -191,76 +194,63 @@
             this.Cijena,
             this.fotografija,
             this.url_link});
-            this.dataGridViewSavedBooks.Location = new System.Drawing.Point(10, 15);
+            this.dataGridViewSavedBooks.Location = new System.Drawing.Point(27, 24);
             this.dataGridViewSavedBooks.Name = "dataGridViewSavedBooks";
             this.dataGridViewSavedBooks.RowTemplate.Height = 24;
-            this.dataGridViewSavedBooks.Size = new System.Drawing.Size(1201, 432);
+            this.dataGridViewSavedBooks.Size = new System.Drawing.Size(992, 337);
             this.dataGridViewSavedBooks.TabIndex = 0;
             this.dataGridViewSavedBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSavedBooks_CellContentClick);
-            // 
-            // redni_broj
-            // 
-            this.redni_broj.DataPropertyName = "nRbr";
-            this.redni_broj.HeaderText = "Redni broj";
-            this.redni_broj.Name = "redni_broj";
-            this.redni_broj.Width = 102;
             // 
             // id
             // 
             this.id.DataPropertyName = "Id";
             this.id.HeaderText = "Id";
             this.id.Name = "id";
-            this.id.Width = 48;
             // 
             // naslov
             // 
             this.naslov.DataPropertyName = "Title";
             this.naslov.HeaderText = "Naslov";
             this.naslov.Name = "naslov";
-            this.naslov.Width = 80;
             // 
             // podnaslov
             // 
             this.podnaslov.DataPropertyName = "Subtitle";
             this.podnaslov.HeaderText = "Podnaslov";
             this.podnaslov.Name = "podnaslov";
-            this.podnaslov.Width = 103;
             // 
             // Isbn_kod
             // 
             this.Isbn_kod.DataPropertyName = "Isbn";
             this.Isbn_kod.HeaderText = "Isbn";
             this.Isbn_kod.Name = "Isbn_kod";
-            this.Isbn_kod.Width = 63;
             // 
             // Cijena
             // 
             this.Cijena.DataPropertyName = "Price";
             this.Cijena.HeaderText = "Cijena";
             this.Cijena.Name = "Cijena";
-            this.Cijena.Width = 76;
             // 
             // fotografija
             // 
             this.fotografija.DataPropertyName = "Image";
             this.fotografija.HeaderText = "Fotografija";
             this.fotografija.Name = "fotografija";
-            this.fotografija.Width = 104;
             // 
             // url_link
             // 
             this.url_link.DataPropertyName = "Url";
             this.url_link.HeaderText = "Url";
             this.url_link.Name = "url_link";
-            this.url_link.Width = 55;
             // 
             // SearchBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 564);
+            this.ClientSize = new System.Drawing.Size(1076, 490);
             this.Controls.Add(this.tabControl1);
             this.Name = "SearchBook";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SearchBook";
             this.Load += new System.EventHandler(this.SearchBook_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).EndInit();
@@ -278,17 +268,16 @@
         private System.Windows.Forms.Label lblBookName;
         private System.Windows.Forms.Button btnSearchBook;
         private System.Windows.Forms.DataGridView dataGridViewBooks;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView dataGridViewSavedBooks;
         private System.Windows.Forms.DataGridViewTextBoxColumn title;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn image;
         private System.Windows.Forms.DataGridViewTextBoxColumn url;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridViewSavedBooks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn redni_broj;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn naslov;
         private System.Windows.Forms.DataGridViewTextBoxColumn podnaslov;
